@@ -25,7 +25,7 @@ buildscript {
 group = "com.njalabs.utils"
 // after updating this, make sure to push a new git tag
 // (would be nice to eventually automate)
-version = "0.1.0-alpha.3"
+version = "0.1.0-alpha.4"
 
 val ghUser = "NJAldwin"
 val ghRepo = "nja-utils"
@@ -164,17 +164,18 @@ subprojects {
 // match semver `x.y.z-something`
 val isPrereleasePattern = """\d+\.\d+\.\d+-.+"""
 
-tasks.register("createJReleaserOutputDir") {
-    doLast {
-        val outputDir = file("${layout.buildDirectory}/jreleaser")
+tasks.named("jreleaserFullRelease") {
+    doFirst {
+        val outputDir = layout.buildDirectory.dir("jreleaser").get().asFile
         if (!outputDir.exists()) {
             outputDir.mkdirs()
         }
     }
 }
 
-tasks.named("jreleaserFullRelease") {
-    dependsOn("createJReleaserOutputDir")
+val outputDir = layout.buildDirectory.dir("jreleaser").get().asFile
+if (!outputDir.exists()) {
+    outputDir.mkdirs()
 }
 
 jreleaser {
