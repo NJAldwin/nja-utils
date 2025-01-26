@@ -1,0 +1,1 @@
+sourceset_dependencies = '{":nja-kotlin:dokkaHtmlPartial/main":[],":nja-json:dokkaHtmlPartial/main":[]}'
