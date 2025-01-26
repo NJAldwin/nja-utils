@@ -11,7 +11,7 @@ plugins {
     kotlin("jvm") version "1.9.25"
     id("org.jlleitschuh.gradle.ktlint") version "12.1.2"
     id("com.github.ben-manes.versions") version "0.51.0"
-    id("org.jreleaser") version "1.15.0"
+    id("org.jreleaser") version "1.16.0"
     id("maven-publish")
     id("org.jetbrains.dokka") version "1.9.20"
 }
@@ -25,7 +25,7 @@ buildscript {
 group = "com.njalabs.utils"
 // after updating this, make sure to push a new git tag
 // (would be nice to eventually automate)
-version = "0.1.0-alpha.1"
+version = "0.1.0-alpha.2"
 
 val ghUser = "NJAldwin"
 val ghRepo = "nja-utils"
